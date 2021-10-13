@@ -1,0 +1,532 @@
+import java.util.Random;
+
+import javax.swing.JOptionPane;
+
+import org.omg.CORBA.INTERNAL;
+
+
+public class principal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//EJRCICIO 1 LLENAR DE 30 ENTEROS Y OBTENER NUMERO DE PARES Y IMPARES
+		int [] v=new int [30]; 
+		llenarvector(v);//llenamos del 1 - 30
+		System.out.println("EJERCICIO1");
+		mostrarvector(v);
+		numeroparesyimpares(v);
+		////////////////////////////
+		//EJERCICIO2 OBTENER SUMA DELOS PARES
+		System.out.println("EJERCICIO2");
+		System.out.println("suma de pares: "+sumapares(v));
+		//////////////////////////////
+		////EJERCICIO3 llenar vector de 20 caracteres consonantes y mostrar
+		System.out.println("EJERCICIO3");
+		String consonantes="bcdfghjklmnpqrstvwxyz";
+		char [] c=new char[20];
+		llenarconsonantes(c);
+		mostrarvechar(c);
+		////ejercicio 4 llenar de 20 elementos caracteres char y contar cuantos son numericos
+		///48 - 91 en ASCII son numeros y abcedario
+
+		System.out.println("EJERCICIO4");
+		char []ca=new char[20];
+		llenarcaracteres(ca);
+		mostrarvechar(ca);
+		contarnumericos(ca);
+		//ejercicio 5 llenar vector 10 enteeros pedir por teclado posicion y numero sustituir en esa posicion
+		System.out.println("EJERCICIO 5");
+		int[]e=new int[10];
+		llenarvector(e);
+		mostrarvector(e);
+		int num=Integer.parseInt(JOptionPane.showInputDialog("INTRODUCE NUMERO"));
+		int pos=Integer.parseInt(JOptionPane.showInputDialog("INTRODUCE POSICION 0-9"));
+		e[pos]=num;
+		mostrarvector(e);
+		//EJERCICIO 6 VECTOR TAMAÑO 10 , ALEATORIOS ENTEROS 1-10, BUSCAR SI HAY NUMERO INTRODUCIDO POR TECLADO,SI HAY 
+		//MOSTRAR LAS POSICIONES DEL NUMERO 
+		System.out.println("EJERCICIO 6");
+		int[]a=new int[10];
+		llenaraleatorio(a);
+		mostrarvector(a);
+		buscarnumeromostrar(a);
+		//EJERCICIO 7 LLENAR VECTOR DE 20 NUMEROS REALES pesos de personas mostrar peso mayor menor medio, mensaje si hay mas de 100kilos
+		System.out.println("EJERCICIO7");
+		double [] p=new double [20];
+		llenarPesosAleatorios(p);
+		mostrarvector(p);
+		mayormediomenor(p);
+		//EJERCICIO 8   tamaño 10 y llenar 9ascendentemente yintroducir por teclado un numero y ordenar ascendentemente
+		System.out.println("EJERCICIO 8");
+		int []h=new int [10];
+		llenarvector(h);
+		mostrarvector(h);
+		int x=Integer.parseInt(JOptionPane.showInputDialog("INTRUSCA NUMERO PARA METER EN EL ASCENDENTE"));
+		h[9]=x;
+		ordenarAscende(h);
+		//ejercicio 9 llenar 20 aleatorios del 1-100y mostrar cuantos dividen al 5
+		System.out.println("EJERCICIO 9");
+		int []f=new int [20];
+		llenaleatoriosmostrardivisibles(f);
+		mostrarvector(f);
+		int divi=0;
+		for (int i = 0; i < f.length; i++) {
+			if (f[i]%5==0) {
+				divi++;
+			}
+		}
+		System.out.println("son divisibles entre 5 :"+divi);
+		//ejercicio 10 llenar con los primeros numeros n primos
+		System.out.println("EJERCICIO 10");
+		int n=Integer.parseInt(JOptionPane.showInputDialog("INTRUSCA NUMERO DE PRIMOS"));
+		int [] pri=new int[n];
+		llenarconprimos(pri);
+		mostrarvector(pri);
+		//EJERCICIO 11 INTERCAMBIAR EL PRIMO MENOR POR EL PRIMO MAYOR
+		System.out.println("EJERCICIO 11");
+		int [] t=new int [n];
+		t=pri;
+		mostrarvector(t);
+		intercambiarprimomayor(t);
+		//EJERCICIO 12 MOSTRAR LOS CAPICUOS EN UN VECTOR
+		System.out.println("EJERCICIO 12");
+		int [] u=new int [20];
+		llenarvector(u);
+		mostrarcapicuos(u);
+		//ejercicio 13 STRING SI ES PALINDROMO
+		System.out.println("EJERCICIO 13");
+		String [] s=new String [2];
+		s[0]="ana";s[1]="mollo";
+		encontrarpalindromos(s);
+	mostrarvector(s);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public static void llenarvector(int v[]){//funcion llenar vector 1-30
+		for (int i = 0; i < v.length; i++) {
+
+			v[i]=i+1;
+
+		}
+
+	}
+
+	public static void mostrarvector(int v[]){
+
+		for (int i = 0; i < v.length; i++) {
+
+			System.out.print("["+v[i]+"],");
+
+		}
+		System.out.println();
+
+	}
+	public static void mostrarvector(String v[]){
+
+		for (int i = 0; i < v.length-1; i++) {
+
+			System.out.print("["+v[i]+"],");
+
+		}
+		System.out.println();
+
+	}
+	public static void mostrarvechar(char c[]){
+
+		for (int i = 0; i < c.length; i++) {
+
+			System.out.print("["+c[i]+"],");
+
+		}
+		System.out.println();
+
+	}
+	public static void mostrarvector(double p[]){
+
+		for (int i = 0; i < p.length; i++) {
+
+			System.out.print("["+p[i]+"],");
+
+		}
+		System.out.println();
+
+	}
+
+
+	//ejercicio 1
+	public static void numeroparesyimpares(int v[]){
+		int pares=0;
+		int impares=0;
+		for (int i = 0; i < v.length; i++) {
+
+			if (v[i]%2==0) {
+				pares++;
+
+			}else{
+				impares++;
+			}
+		}
+		System.out.println();
+		System.out.println("HAY PARES:"+pares);
+		System.out.println("HAY IMPARES"+impares);
+	}
+	//ejercicio2
+	public static int  sumapares(int v[]){
+		int sumapar=0;
+
+		for (int i = 0; i < v.length; i++) {
+
+			if (v[i]%2==0) {
+				sumapar=sumapar+v[i];
+
+			}
+		}
+		return sumapar;
+
+	}
+	//ejercicio3 vector de caractares char llenar
+	public static void  llenarconsonantes(char c[]){
+		String consonantes="bcdfghjklmnpqrstvwxyz";
+		for (int i = 0; i < c.length; i++) {
+
+			c[i]=consonantes.charAt(i);
+
+		}
+
+
+	}
+
+	//ejercicio 4 llenar de todo tipo de caracteres y contar los numericos
+	public static void  llenarcaracteres(char c[]){
+
+		for (int i = 0; i < c.length; i++) {
+			///48 - 91 en ASCII son numeros y abcedario
+			Random rnd=new Random();
+			int x=(int)(rnd.nextDouble()*43+48);
+
+			c[i]=(char) x;
+		}
+	}
+	public static void  contarnumericos(char c[]){
+		int contador=0;
+		for (int i = 0; i < c.length; i++) {
+			if (c[i]=='0'||c[i]=='1'||c[i]=='2'||c[i]=='3'||c[i]=='4'||c[i]=='5'||c[i]=='6'||c[i]=='7'||c[i]=='8'||c[i]=='9') {
+				contador++;
+			}
+
+		}
+		System.out.println("HAY: "+contador+" caracteres numericos");
+
+	}
+	////ejercicio 6
+	public static void llenaraleatorio(int a[]) {
+		Random rnd=new Random();
+		for (int i = 0; i < a.length; i++) {
+			a[i]=(int)(rnd.nextDouble()*10+1);//aleatorio entre 1 y 10
+		}
+
+	}
+	public static void buscarnumeromostrar(int a[]){
+
+		int x=Integer.parseInt(JOptionPane.showInputDialog("INGRESE NUMERO A BUSCAR 1-10"));
+		for (int i = 0; i < a.length; i++) {
+			if (x==a[i]) {
+				System.out.print(" ENCONTRO EN  POSICION: "+i);	
+			}
+		}
+		System.out.println();
+	}
+	//EJERCICIO 7
+	public static void llenarPesosAleatorios(double p[]){
+		Random rnd=new Random();
+		for (int i = 0; i < p.length; i++) {
+			p[i]=Math.round((rnd.nextDouble()*120+1));
+		}
+
+	}
+	public static void mayormediomenor(double p[]){
+		double may=0;
+		double men=150;
+		double medio=0;
+		int mas100kilos=0;
+		for (int i = 0; i < p.length; i++) {
+			if (p[i]<men) {
+				men=p[i];
+			}
+			if (p[i]>may) {
+				may=p[i];
+			}
+			medio=medio+p[i];
+			if (p[i]>100) {
+				mas100kilos++;
+
+			}
+
+		}
+		System.out.println("EL PESO MAYOR ES: "+may);
+		System.out.println("EL PESO MENOR ES: "+men);
+		System.out.println("EL PESO MEDIO ES: "+medio/20);
+		System.out.println("CON MAS DE 100KILOS HAY: "+mas100kilos);
+	}
+	///ejerciocio 8
+	public static void llenar9posiciones(int h[]){
+		for (int i = 0; i < h.length-1; i++) {
+
+			h[i]=i+1;
+
+		}
+	}
+
+	public static void ordenarAscende(int h[]){
+		for (int i = 0; i < h.length-1; i++) {
+			int min=i;
+			for (int j = i+1; j < h.length; j++) {
+
+				if (h[j]<h[min]) {
+					min=j;
+				}
+
+			}
+			if (i!=min) {
+				int aux=h[i];
+				h[i]=h[min];
+				h[min]=aux;
+
+			}
+
+		}
+	}
+
+	//EJERCICIO 9
+
+	public static void llenaleatoriosmostrardivisibles(int f[]){
+		int divi=0;
+		Random rnd=new Random();
+		for (int i = 0; i < f.length; i++) {
+
+			f[i]=(int)(rnd.nextDouble()*100+1);	
+		}
+
+	}
+
+	//EJERCICIO 10
+
+	private static void llenarconprimos(int pri[]) {
+		int p=0;
+		int y=1;
+		for (int i = 0; i < pri.length; i++) {
+
+			p=0;
+			while (p!=2) {
+
+				p=0;
+				y++;
+				for (int j = 1; j <=y; j++) {
+					if (y%j==0) {
+						p++;
+					}
+
+				}
+
+			}
+			pri[i]=y;
+
+		}
+
+	}
+
+	///ejercicio 11 
+	private static void intercambiarprimomayor(int t[]) {
+		int men ;
+		int may;
+		men=t[0];
+		may=t[t.length-1];
+		t[0]=may;
+		t[t.length-1]=men;
+
+	}
+	//ejercicio 12
+	private static void mostrarcapicuos(int u[]) {
+
+		for (int i = 0; i < u.length; i++) {
+			int n=0;
+			int nn=0;
+			n=u[i];
+
+			while (n!=0) {
+
+				int z=n%10;
+				n=n/10;
+				nn=nn*10+z;
+			}
+
+
+			if (nn==u[i]) {
+				System.out.print(" es capicuo el "+u[i]);
+
+			}
+		}
+		System.out.println();
+
+	}
+	public static void encontrarpalindromos(String s[]) {
+		for (int i = 0; i < s.length; i++) {
+			String aux=s[i];
+			String nn="";
+			for (int j = 0; j < aux.length(); j++) {
+				nn=aux.substring(j)+nn;
+			}
+			if (s[i]==nn) {
+				System.out.println("es palindromo el "+s[i]);
+
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

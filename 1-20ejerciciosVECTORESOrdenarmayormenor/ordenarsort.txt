@@ -1,0 +1,29 @@
+package ordenar;
+
+import java.util.Arrays;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int num[] = {50,20,45,82,25,63};
+        int l = num.length;
+        int i,j,t;
+        System.out.print("Valor del array : ");
+        // Recorremos el array mostrando los valores actuales
+        for (i = 0;i < l;i++ ){
+            System.out.print("  " + num[i]);
+        }
+        System.out.println("\n");
+        System.out.print("Ordenado ascendentemente : ");
+        // Ordenamos el array utilizando la funcion sort() de java.util.*
+        Arrays.sort(num);
+        // Recorremos el array mostrando los valores ordenados
+        for(i = 0;i < l;i++){
+            System.out.print("  " + num[i]);
+        }
+		
+	}
+
+}
